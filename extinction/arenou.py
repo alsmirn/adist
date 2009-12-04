@@ -185,10 +185,13 @@ PLATES_DESCRIPTION = {
 
 def __get_plate_no(b, l):
     """
-    @param l: galactic longitude
-    @param b: galactic latitude
+    @param l: galactic longitude.
+    @type l: float.
+    @param b: galactic latitude,
+    @type b: float.
     
-    @return plate_no: unique identifier of plate in (l, b) direction
+    @return plate_no: unique identifier of plate in (l, b) direction.
+    @type plate_no: integer.
     
     @author: Alexey Smirnov
     """
@@ -214,11 +217,15 @@ def __get_plate_no(b, l):
 
 def av_arenou(r, l, b):
     """
-    @param r: distance in parsecs. Float.
-    @param l: galactic longitude. Float.
-    @param b: galactic latitude. Float.
+    @param r: distance in parsecs.
+    @type r: float.
+    @param l: galactic longitude.
+    @param l: float.
+    @param b: galactic latitude.
+    @param b: float.
     
-    @return a_v: full extinction value in visual band
+    @return a_v: full extinction value in visual band.
+    @return a_v: float. 
     
     @author: Alexey Smirnov
     @note: computations are based on next paper results: "A tridimensional 

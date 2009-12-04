@@ -51,12 +51,17 @@ for row in [line.split()[1:] for line in file]:
 
 def av_tabular(t_class, s_class, l_class, b_v):
     """
-    @param t_class: Temperature class, from list 'OBAFGKM'. String.
-    @param s_class: Temperature subclass, from 0 to 9. Integer.
-    @param l_class: Luminosity class, like 1, 3 or 5. Integer.
-    @param b_v: B-V value. Float.
+    @param t_class: Temperature class, from list 'OBAFGKM'.
+    @type t_class: string.
+    @param s_class: Temperature subclass, from 0 to 9.
+    @type s_class: onteger.
+    @param l_class: Luminosity class, like 1, 3 or 5.
+    @type l_class: integer.
+    @param b_v: B-V value.
+    @type b_v: float.
     
-    @return a_v: full extinction value in visual band
+    @return a_v: full extinction value in visual band.
+    @type a_v: float.
     
     @author: Alexey Smirnov
     @note: computations are based on next paper results: "Inaccuracies in the 
