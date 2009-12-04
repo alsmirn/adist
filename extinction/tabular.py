@@ -24,19 +24,22 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
+import os
 
 STD_V = {}
 STD_BV = {}
 
 # Table of values from: 
 # http://vizier.cfa.harvard.edu/viz-bin/Cat?J/PAZh/34/21#sRM2.1
-__file_with_standards = "standards.dat"
+
+__file_with_standards = os.path.join("extinction", "standards.dat")
 
 try:
     file = open(__file_with_standards, 'r')
 except IOError:
     import sys
     print "File %s does not exists." % __file_with_standards
+    print __file_with_standards
     sys.exit(True)
 
 for row in [line.split()[1:] for line in file]:
@@ -51,7 +54,7 @@ def av_tabular(t_class, s_class, l_class, b_v):
     @param t_class: Temperature class, from list 'OBAFGKM'. String.
     @param s_class: Temperature subclass, from 0 to 9. Integer.
     @param l_class: Luminosity class, like 1, 3 or 5. Integer.
-    @param b_v: B-V. Float.
+    @param b_v: B-V value. Float.
     
     @return a_v: full extinction value in visual band
     

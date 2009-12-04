@@ -214,9 +214,9 @@ def __get_plate_no(b, l):
 
 def av_arenou(r, l, b):
     """
-    @param r: distance in parsecs
-    @param l: galactic longitude
-    @param b: galactic latitude
+    @param r: distance in parsecs. Float.
+    @param l: galactic longitude. Float.
+    @param b: galactic latitude. Float.
     
     @return a_v: full extinction value in visual band
     
