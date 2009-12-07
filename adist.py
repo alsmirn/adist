@@ -31,24 +31,15 @@ from extinction import arenou, tabular
 def photo_dist(v_band, b_v, t_class, s_class, l_class, **kwargs):
     """
     @param v_band: visual magnitude. 
-    @type v_band: float.
     @param b_v: B-V value. 
-    @type b_v: float.
     @param t_class: Temperature class, from list 'OBAFGKM'.
-    @type t_class: string.
     @param s_class: Temperature subclass, from 0 to 9. 
-    @type s_class: integer.
     @param l_class: Luminosity class, like 1, 3 or 5.
-    @type l_class: integer.
    
     @keyword extinction: use some extinction model or no, ('arenou', 'tabular')
-    @type extinction: string.
     @keyword dist: some distance to star in parsecs.
-    @type dist: float.
     @keyword l: galactic longitude.
-    @type l: float.
     @keyword b: galactic latitude.
-    @type b: float.
     
     @return photo_dist: photometric distance in parsecs.
     @type photo_dist: float.
