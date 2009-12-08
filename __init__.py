@@ -78,15 +78,3 @@ def photo_dist(v_band, b_v, t_class, s_class, l_class, **kwargs):
     photo_dist = 10.0**(0.2 * (v_band - tabular.STD_V[TSL] - a_v + 5.0))
     
     return photo_dist  
-
-def main():
-    from time import time
-    from random import randint
-    beg = time()
-    for i in xrange(100000):
-        photo_dist(10, 4, 'O', 7, 5, extinction='arenou', 
-                   dist=randint(0,1000), l=randint(0,361), b=randint(-90,91))
-        #photo_dist(10, 4, 'O', 7, 5, extinction='tabular', )
-    print time() - beg
-    
-main()

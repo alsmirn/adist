@@ -29,11 +29,10 @@ import os
 STD_V = {}
 STD_BV = {}
 
-# Table of values from: 
+# Little bit modernized table of values from: 
 # http://vizier.cfa.harvard.edu/viz-bin/Cat?J/PAZh/34/21#sRM2.1
-
-__file_with_standards = os.path.join("extinction", "standards.dat")
-
+__file_with_standards = os.path.join(os.path.dirname(__file__), 
+                                     "standards.dat")
 try:
     file = open(__file_with_standards, 'r')
 except IOError:
