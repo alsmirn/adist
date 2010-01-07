@@ -25,13 +25,17 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
+import sys
 
 from extinction import arenou, tabular
 
-def photo_dist(v_band, b_v, t_class, s_class, l_class, **kwargs):
+def exit_from_method(method_name): 
+    print("Not enough arguments to applying %s method" % method_name)
+    sys.exit(True)
+
+def photo_dist(v_band, t_class, s_class, l_class, **kwargs):
     """
     @param v_band: visual magnitude. 
-    @param b_v: B-V value. 
     @param t_class: Temperature class, from list 'OBAFGKM'.
     @param s_class: Temperature subclass, from 0 to 9. 
     @param l_class: Luminosity class, like 1, 3 or 5.
@@ -40,6 +44,7 @@ def photo_dist(v_band, b_v, t_class, s_class, l_class, **kwargs):
     @keyword dist: some distance to star in parsecs.
     @keyword l: galactic longitude.
     @keyword b: galactic latitude.
+    @keyword b_v: B-V value.
     
     @return photo_dist: photometric distance in parsecs.
     @type photo_dist: float.
@@ -63,12 +68,14 @@ def photo_dist(v_band, b_v, t_class, s_class, l_class, **kwargs):
             l = kwargs.pop('l')
             b = kwargs.pop('b')
         except KeyError:
-            print "Not enough arguments to applying %s method." % extinction
-            import sys
-            sys.exit(True)
+            exit_from_method(extinction)
         a_v = arenou.av_arenou(dist, l, b)
     elif extinction == 'tabular':
-        a_v = tabular.av_tabular(t_class, s_class, l_class, b_v)
+        try:
+            b_v = kwargs.pop('b_v')
+            a_v = tabular.av_tabular(t_class, s_class, l_class, b_v)
+        except KeyError:
+            exit_from_method(extinction)
     else:
         a_v = float(0)
         
