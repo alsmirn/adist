@@ -1,7 +1,7 @@
-ABOUT
-=====
+# ADIST
 
-"adist" is an astronomical library for photometric distances calculation. 
+
+Astronomical library for photometric distances calculation. 
 
 Implemented different extinction models: 
 
@@ -14,9 +14,9 @@ Implemented different extinction models:
  in Astronomy Letters, Volume 34, Issue 1, pp.17-27. 
 
 
-USAGE
-=====
+## USAGE
 
+```
 >>> from adist import photo_dist
 >>> v_mag = 10.0
 >>> t_class, s_class, l_class = 'G', 5, 5
@@ -30,26 +30,20 @@ USAGE
 >>> # tabular scheme
 >>> photo_dist(v_mag, t_class, s_class, l_class, extinction='tabular', 
 		b_v=0.5)
+```
+
+## VERSIONS
 
 
-VERSIONS
-========
+**v0.1.1**
 
-v0.1.1
-------
  - fix photo_dist function interface (b_v parameter)
 
-v0.1 - first release
---------------------
-
-TODO
-====
-
- - realize another extinction models.
+**v0.1** - first release
 
 
-AUTHOR/CONTACTS
-===============
 
-Alexey Smirnov is a postgraduate student in Saint-Petersburg State University, 
-RUSSIA. Contact with: alsmirn@gmail.com.
+
+## AUTHOR/CONTACTS
+
+Alexey Smirnov, contact with: alsmirn@gmail.com.
